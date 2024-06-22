@@ -1,0 +1,229 @@
+#root.root {
+  --tabs-indent: 0px;
+  --general-border-radius: 4px;
+  --tabs-height: 32px;
+  --tabs-margin: 6px;
+  --pinned-tabs-col: 4;
+	--tabs-border-color: linear-gradient(45deg, #3498db, #2ecc71, #e74c3c) 1;
+	--bg-angle: 0deg;
+  flex-direction: column-reverse;
+}
+
+
+.NavigationBar .main-items {
+  justify-content: center;
+}
+
+.Tab {
+  min-width: 33px;
+  transition: all ease-in-out 200ms;
+}
+
+.NavigationBar {
+  transition: all ease-in-out 200ms;
+}
+
+.NavigationBar[data-layout="inline"] .main-items .nav-item {
+  transform: translateX(0) !important;
+  position: relative !important;
+  flex-grow: 1;
+  max-width: 66px;
+}
+
+.NavigationBar[data-layout="inline"] .main-items .nav-item[data-active="false"] {
+  display: none;
+}
+
+.BottomBar {
+  display: none;
+}
+
+.Tab .audio, .Tab .title {
+  opacity: 0 !important;
+  transition: ease-in-out 250ms;
+}
+
+.Tab[data-pin="true"] .fav, .Tab[data-pin="true"] .fav-icon {
+  width: 20px;
+  height: 20px;
+}
+
+.Tab[data-pin="false"] .fav, .Tab[data-pin="false"] .fav-icon {
+  width: 18px;
+  height: 18px;
+}
+
+.Tab[data-pin="true"][data-active="true"] .color-layer {
+  background-color: #ffffff !important;
+	
+
+	/* gradient border */
+	animation: spin 1.5s linear infinite;
+
+	background: linear-gradient(
+      to right,
+      var(--frame-bg),
+      var(--frame-bg)
+    )
+    padding-box,
+  	conic-gradient(
+      from var(--bg-angle) in oklch longer hue,
+      oklch(0.85 0.37 0) 0 0
+    )
+    border-box;
+
+  border: 3.3px solid transparent;
+
+}
+
+
+.Tab[data-pin="false"] .color-layer {
+  opacity: 0 !important;
+  border: 0 !important;
+}
+
+.Tab[data-pin="false"][data-active="true"] .body {
+	box-shadow: var(--frame-fg) -2px 2px 6px -1px;
+
+
+	
+	/* gradient border */
+	animation: spin 1.5s linear infinite;
+
+	background: linear-gradient(
+      to right,
+      var(--frame-bg),
+      var(--frame-bg)
+    )
+    padding-box,
+  	conic-gradient(
+      from var(--bg-angle) in oklch longer hue,
+      oklch(0.85 0.37 0) 0 0
+    )
+    border-box;
+
+  border: 3.3px solid transparent;
+	border-left: 0;
+	border-right: 0;
+	
+	filter: brightness(1.2);
+
+}
+
+
+.Tab[data-pin="false"] {
+  border: 0 !important;
+}
+
+.Tab .title {
+  background: linear-gradient(90deg, var(--tabs-normal-fg) 80%, #f1f1f100 99%);
+	filter: brightness(0.8); 
+  background-clip: text;
+  color: transparent;
+}
+
+@media screen and (min-width: 350px) {
+	
+  .NavigationBar[data-layout="inline"] .main-items .nav-item[data-active="false"] {
+    display: flex;
+  }
+  .BottomBar {
+    display: flex;
+  }
+  #root.root {
+    --tabs-indent: 14px;
+  }
+  .Tab .audio, .Tab .title {
+    opacity: 1 !important;
+  }
+  #root.root {
+    --tabs-pinned-height: 40px;
+    --tabs-pinned-width: calc((100vw - (var(--tabs-margin) * (var(--pinned-tabs-col) + 1))) / var(--pinned-tabs-col));
+  }
+}
+
+.PinnedTabsBar {
+
+    /* Ensure the items do not wrap */
+    flex-wrap: nowrap !important;
+    height: auto; /* Allow height to adjust based on content */
+		padding-top: 5px !important;
+}
+
+/* Target multi-row layout for pinned tabs */
+@media screen and (min-width: 350px) {
+    .PinnedTabsBar {
+        flex-wrap: wrap !important; /* Allow wrapping */
+        height: auto;
+    }
+    
+    /* Calculate the height based on the number of rows */
+    /* Assuming each row's height is determined by --tabs-pinned-height */
+    [data-pinned-tab-count="3"] {
+        height: var(--tabs-pinned-height);
+    }
+    
+    [data-pinned-tab-count="6"] {
+        height: calc(2 * var(--tabs-pinned-height) + var(--tabs-margin));
+    }
+    
+    /* Add more rules as needed to handle other counts */
+}
+
+
+
+/* enable tab title scrolling */
+.Tab:hover .title {
+	transition: all 3.5s ease;
+	margin-left: -10rem;
+}
+
+
+@keyframes AnimationName {
+    0%{background-position:0% 50%}
+    50%{background-position:100% 50%}
+    100%{background-position:0% 50%}
+}
+
+
+@keyframes spin {
+    0% {--bg-angle: 0deg}
+    2.78% {--bg-angle: 10deg}
+    5.56% {--bg-angle: 20deg}
+    8.33% {--bg-angle: 30deg}
+    11.11% {--bg-angle: 40deg}
+    13.89% {--bg-angle: 50deg}
+    16.67% {--bg-angle: 60deg}
+    19.44% {--bg-angle: 70deg}
+    22.22% {--bg-angle: 80deg}
+    25.00% {--bg-angle: 90deg}
+    27.78% {--bg-angle: 100deg}
+    30.56% {--bg-angle: 110deg}
+    33.33% {--bg-angle: 120deg}
+    36.11% {--bg-angle: 130deg}
+    38.89% {--bg-angle: 140deg}
+    41.67% {--bg-angle: 150deg}
+    44.44% {--bg-angle: 160deg}
+    47.22% {--bg-angle: 170deg}
+    50.00% {--bg-angle: 180deg}
+    52.78% {--bg-angle: 190deg}
+    55.56% {--bg-angle: 200deg}
+    58.33% {--bg-angle: 210deg}
+    61.11% {--bg-angle: 220deg}
+    63.89% {--bg-angle: 230deg}
+    66.67% {--bg-angle: 240deg}
+    69.44% {--bg-angle: 250deg}
+    72.22% {--bg-angle: 260deg}
+    75.00% {--bg-angle: 270deg}
+    77.78% {--bg-angle: 280deg}
+    80.56% {--bg-angle: 290deg}
+    83.33% {--bg-angle: 300deg}
+    86.11% {--bg-angle: 310deg}
+    88.89% {--bg-angle: 320deg}
+    91.67% {--bg-angle: 330deg}
+    94.44% {--bg-angle: 340deg}
+    97.22% {--bg-angle: 350deg}
+    100% {--bg-angle: 360deg}
+}
+
+

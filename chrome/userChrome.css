@@ -1,33 +1,18 @@
-html:not([privatebrowsingmode="temporary"]) {
-    --custom-bg: #f1f1fa;
-}
+@import url(chrome/urlbar_centered_text.css);
 
-html:not([privatebrowsingmode="temporary"]) body {
-    background: var(--custom-bg) !important;
-}
+@import url(chrome/button_effect_scale_onhover.css);
+@import url(chrome/page_action_buttons_on_urlbar_hover.css);
+@import url(chrome/vertical_context_navigation.css);
 
-html:not([privatebrowsingmode="temporary"]) #navigator-toolbox {
-    padding-top: 3px;
-    padding-bottom: 4px;
-    background: var(--custom-bg) !important;
-    border-bottom: 0 !important;
-}
 
-html:not([privatebrowsingmode="temporary"]) #nav-bar {
-    background: var(--custom-bg) !important;
-}
 
-html:not([privatebrowsingmode="temporary"]) #sidebar-box {
-    background: var(--custom-bg) !important;
-}
+/* Hide tabs bar */
+@import url("tweaks/hide-tabs-bar.css") (-moz-bool-pref: "uc.tweak.hide-tabs-bar");
 
-html:not([privatebrowsingmode="temporary"]) #appcontent {
 
-}
 
-html:not([privatebrowsingmode="temporary"]) #TabsToolbar {
-    visibility: collapse !important;
-}
+
+
 
 html:not([privatebrowsingmode="temporary"]) #sidebar-header {
     display: none;
@@ -37,16 +22,7 @@ html:not([privatebrowsingmode="temporary"]) #identity-icon-label {
     display: none;
 }
 
-html:not([privatebrowsingmode="temporary"]) #urlbar {
-    left: 50% !important;
-    transform: translateX(-50%);
-    max-width: 960px !important;
-}
 
-html:not([privatebrowsingmode="temporary"]) #urlbar:not([breakout-extend]) #urlbar-background {
-    background: none !important;
-    background-color: transparent !important;
-}
 
 html:not([privatebrowsingmode="temporary"]) #sidebar-box{
   --uc-sidebar-width: 45px;
@@ -80,3 +56,4 @@ html:not([privatebrowsingmode="temporary"]) .sidebar-panel{
     background-color: transparent !important;
     color: var(--newtab-text-primary-color) !important;
 }
+

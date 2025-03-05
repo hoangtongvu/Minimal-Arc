@@ -21,6 +21,12 @@
 
 .NavigationBar {
   transition: all ease-in-out 200ms;
+  border: 1px solid var(--toolbar-el-overlay-selected-border);
+  border-radius: 5px;
+  border-left: 0;
+  border-right: 0;
+  border-top: 1;
+  border-bottom: 0;
 }
 
 .NavigationBar[data-layout="inline"] .main-items .nav-item {
@@ -38,14 +44,19 @@
   display: none;
 }
 
+/* Hide the scroll bar of tabs container */
+div:has(.Tab) {
+	scrollbar-width: none !important;
+}
+
 .Tab .audio, .Tab .title {
   opacity: 0 !important;
   transition: ease-in-out 250ms;
 }
 
 .Tab[data-pin="true"] .fav, .Tab[data-pin="true"] .fav-icon {
-  width: 20px;
-  height: 20px;
+  width: 22px;
+  height: 22px;
 }
 
 .Tab[data-pin="false"] .fav, .Tab[data-pin="false"] .fav-icon {
@@ -83,10 +94,6 @@
 }
 
 .Tab[data-pin="false"][data-active="true"] .body {
-	box-shadow: var(--frame-fg) -2px 2px 6px -1px;
-
-
-	
 	/* gradient border */
 	animation: spin 1.5s linear infinite;
 
@@ -102,9 +109,11 @@
     )
     border-box;
 
-  border: 3.3px solid transparent;
-	border-left: 0;
-	border-right: 0;
+  border: 1.5px solid transparent;
+	border-left: 1;
+	border-right: 1;
+	border-top: 1;
+	border-bottom: 1;
 	
 	filter: brightness(1.2);
 

@@ -25,8 +25,8 @@ html:not([privatebrowsingmode="temporary"]) #identity-icon-label {
 
 
 html:not([privatebrowsingmode="temporary"]) #sidebar-box{
-  --uc-sidebar-width: 45px;
-  --uc-sidebar-hover-width: 360px;
+  --uc-sidebar-width: 40px;
+  --uc-sidebar-hover-width: 350px;
   --uc-autohide-sidebar-delay-before: 125ms;
   --uc-autohide-sidebar-delay-after: 300ms;
   --uc-autohide-transition-duration: 300ms;

@@ -1,6 +1,9 @@
 @import url(chrome/urlbar_centered_text.css);
 
 @import url(chrome/page_action_buttons_on_urlbar_hover.css);
+@import url(chrome/blank-context.css);
+@import url(chrome/image-context.css);
+@import url(chrome/link-context.css);
 
 
 
